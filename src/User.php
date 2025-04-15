@@ -27,7 +27,9 @@ class User {
             $smtp->bindParam(':email', $this->email);
 
             if($smtp->execute()){
-                displayMessage("success", "User {$this->name} registered successfully");
+                displayMessage("success", "User {$this->name} registered successfully! Redirecting ...");
+                header('refresh: 1; url=login.php');
+                exit();
             }else {
                 displayMessage("error", "Failed to register the user");
             }
@@ -48,8 +50,8 @@ class User {
             if($user && password_verify($password, $user['password'])){
                 $_SESSION['Name'] = $user['name'];
                 $_SESSION['Active'] = true;
-
-                header('location:' . BASE_URL . 'index.php');
+                displayMessage("success", "Logged in successfully! Redirecting ...");
+                header('refresh: 1;url=' . BASE_URL . 'index.php');
                 exit();
             }else {
                 displayMessage("error", "Incorrect username or password");

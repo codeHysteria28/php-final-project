@@ -34,19 +34,19 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>src/contact.php">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>src/login.php">Sign In</a>
-                </li>
+                <?php
+                if(isset($_SESSION['Active']) && $_SESSION['Active']){
+                    echo '<li class="nav-item mt-2"><small class="text-success">User: ';
+                    echo $_SESSION['Name'];
+                    echo '&nbsp;<a href="' . BASE_URL . 'src/logout.php"><i class="fa-solid fa-arrow-right-from-bracket ml-2"></i></a></small></li>';
+                }else {
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link" href="' . BASE_URL . 'src/login.php">Sign In</a>';
+                    echo '</li>';
+                }
+                ?>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container-fluid">
-<?php 
-    if(isset($_SESSION['Active']) && $_SESSION['Active']){
-        echo '<p class="ml-5"><small class="text-success">Logged in as: ';
-        echo $_SESSION['Name'];
-        echo ' <a href="' . BASE_URL . 'src/logout.php">Logout</a>';
-        echo '</small></p>';
-    }
-?>

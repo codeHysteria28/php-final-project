@@ -20,13 +20,11 @@ if(isset($_POST['submit'])) {
         if(!empty($name) && !empty($password) && !empty($email)){
             $user = new User($dbConnection, $name, $password, $email);
             $user->registerUser();
-            header('location: login.php');
-            exit();
         }else {
-            echo "Please, fill all required field !";
+            displayMessage("error", "Please, fill all required field !");
         }
     }catch (Exception $ex){
-        echo "Error: " . $ex->getMessage();
+        displayMessage("error", "Error: " . $ex->getMessage());
     }
 }
 

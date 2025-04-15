@@ -8,5 +8,4 @@ include "src/templates/header.php";
 ?>
 
 
-
 <?php include "src/templates/footer.php" ?>
