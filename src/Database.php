@@ -7,7 +7,7 @@ class Database {
         try{
             $servername = "localhost";
             $username = "root";
-            $password = "";
+            $password = "root";
             $dbname = "phpfinalproject";
 
             $this->dbConnection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

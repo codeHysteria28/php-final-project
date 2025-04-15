@@ -20,9 +20,8 @@ class User {
     // method to register a new user
     public function registerUser(): void{
         try{
-            $smtp = $this->db->prepare(
-                "INSERT INTO users(name, password, email) VALUES(:name, :password, :email)"
-            );
+            $query = "INSERT INTO users(name, password, email) VALUES(:name, :password, :email)";
+            $smtp = $this->db->prepare($query);
             $smtp->bindParam(':name', $this->name);
             $smtp->bindParam(':password', $this->password);
             $smtp->bindParam(':email', $this->email);
@@ -33,6 +32,29 @@ class User {
                 displayMessage("error", "Failed to register the user");
             }
         }catch (PDOException $ex){
+            displayMessage("error", "Error: " . $ex->getMessage());
+        }
+    }
+
+    // method to login user
+    public function loginUser($name, $password): void {
+        try {
+            $query = "SELECT * FROM users WHERE name = :name";
+            $smtp = $this->db->prepare($query);
+            $smtp->bindParam(':name', $name);
+            $smtp->execute();
+            $user = $smtp->fetch(PDO::FETCH_ASSOC);
+
+            if($user && password_verify($password, $user['password'])){
+                $_SESSION['Name'] = $user['name'];
+                $_SESSION['Active'] = true;
+
+                header('location:' . BASE_URL . 'index.php');
+                exit();
+            }else {
+                displayMessage("error", "Incorrect username or password");
+            }
+        }catch(PDOException $ex){
             displayMessage("error", "Error: " . $ex->getMessage());
         }
     }

@@ -20,6 +20,8 @@ if(isset($_POST['submit'])) {
         if(!empty($name) && !empty($password) && !empty($email)){
             $user = new User($dbConnection, $name, $password, $email);
             $user->registerUser();
+            header('location: login.php');
+            exit();
         }else {
             echo "Please, fill all required field !";
         }
@@ -46,6 +48,10 @@ if(isset($_POST['submit'])) {
                 <input type="password" name="password" class="form-control" id="password" required>
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <p class="mt-3">
+                <small>Already have an account ?</small>
+                <a href="./login.php">Login</a>
+            </p>
         </form>
     </div>
 </div>
