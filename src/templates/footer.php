@@ -1,7 +1,7 @@
 </div>
 <footer class="mt-auto bg-light w-100">
     <div class="text-center py-3">
-        <p>&copy; <?php echo date("Y"); ?> TU Dublin. All rights reserved.</p>
+        <p class="text-primary">&copy; <?php echo date("Y"); ?> Learn2Code.io / All rights reserved.</p>
     </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

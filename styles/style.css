@@ -2,4 +2,41 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a.nav-link:hover {
+    color: #0D6EFD;
+    transition: all .5s ease;
+}
+
+div.image-container {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+}
+
+div.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.learningToCode {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    z-index: 1;
+}
+
+.image-container .learningToCodeCopy {
+    width: 350px;
+    height: 350px;
+    top: 45px;
+    left: 45px;
+    z-index: -1;
+    opacity: 0.8;
 }
