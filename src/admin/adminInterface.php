@@ -1,7 +1,7 @@
 <?php
 include '../templates/adminHeader.php';
 require_once '../HelperFunctions/displayAlert.php';
-require_once '../Database.php';
+include 'getAllCourses.php';
 
 if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
     // admin content below
@@ -49,24 +49,22 @@ if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
             <?php
                 // dynamically output courses from database into the table
                 try {
-                    $query = "SELECT * FROM courses";
-                    $database = new Database();
-                    $dbConn = $database->getConnection();
-                    $stmt = $dbConn->prepare($query); // Prepare the query
-                    $stmt->execute();
-                    $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    // call a helper function to fetch all courses
+                    $courses = getAllCourses();
 
+                    // check if the result is empty
                     if(!empty($courses)){
+                        // loop over all the available courses and output them to table
                         foreach ($courses as $course){
-                            echo '<tr><th scope="row">';
+                            echo '<tr><th class="text-primary" scope="row">';
                             echo $course['ID'];
                             echo '</th>';
                             echo "<td>{$course['title']}</td>";
                             echo "<td>{$course['description']}</td>";
                             echo "<td>{$course['price']}</td>";
                             echo "<td>{$course['videoUrl']}</td>";
-                            echo '<td><a href="updateCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-pencil"></i></a></td>';
-                            echo '<td><a href="deleteCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-trash"></i></a></td>';
+                            echo '<td><a class="text-warning" href="updateCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-pencil"></i></a></td>';
+                            echo '<td><a class="text-danger" href="deleteCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-trash"></i></a></td>';
                             echo '</tr>';
                         }
                     }else {
