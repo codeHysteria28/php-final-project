@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
         $smtp->execute();
         $admin = $smtp->fetch(PDO::FETCH_ASSOC);
 
-        if($admin){
+        if($admin && $admin['pass'] == $adminPass){
             $_SESSION['AdminID'] = $admin['ID'];
             $_SESSION['AdminActive'] = true;
             displayMessage("success", "Logged in successfully! Redirecting ...");

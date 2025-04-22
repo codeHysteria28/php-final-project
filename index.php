@@ -23,9 +23,13 @@ include "src/templates/header.php";
             </div>
         </div>
     </div>
-    <a class="btn btn-primary" href="src/signUp.php">
-        Sign Up today
-    </a>
+    <?php
+        if(isset($_SESSION['Active']) && $_SESSION['Active']){
+            echo '<a class="btn btn-primary" href="src/courses.php">Browse Courses</a>';
+        }else {
+            echo '<a class="btn btn-primary" href="src/signUp.php">Sign Up today</a>';
+        }
+    ?>
 </div>
 
 <?php include "src/templates/footer.php"; ?>
