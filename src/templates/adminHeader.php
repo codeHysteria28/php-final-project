@@ -14,7 +14,15 @@
 <body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand text-primary fw-bold" href="#">Admin</a>
+        <a class="navbar-brand text-primary fw-bold" href="#">
+            <?php
+                if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
+                    echo "Admin Interface";
+                }else {
+                    echo "Admin Login";
+                }
+            ?>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,3 +45,4 @@
         </div>
     </div>
 </nav>
+<div class="container-fluid">

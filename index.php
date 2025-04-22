@@ -14,6 +14,7 @@ include "src/templates/header.php";
             <p class="text-muted">
                 Embark on an exciting journey into the world of programming with our comprehensive and easy-to-follow learning platform. Whether you're a complete beginner or looking to expand your existing skills, we provide the tools and resources you need to master in-demand coding languages and build innovative projects. Start your coding adventure today!
             </p>
+            <small class="text-primary">Create an account to browse courses !</small>
         </div>
         <div class="col-md-6 text-center">
             <div class="image-container">
@@ -25,7 +26,6 @@ include "src/templates/header.php";
     <a class="btn btn-primary" href="src/signUp.php">
         Sign Up today
     </a>
-    <a class="btn btn-secondary" href="src/courses.php">Browse courses</a>
 </div>
 
 <?php include "src/templates/footer.php"; ?>

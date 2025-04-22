@@ -1,5 +1,5 @@
-<?php 
-define('BASE_URL', '/php-final-project/');  
+<?php
+define('BASE_URL', '/php-final-project/');
 session_start();
 
 // extract file name from a given path
@@ -56,9 +56,12 @@ switch ($page){
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>index.php">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>src/courses.php">Courses</a>
-                </li>
+                <?php
+                    if(isset($_SESSION['Active']) && $_SESSION['Active']){
+                        echo '<li class="nav-item">';
+                        echo '<a class="nav-link" href="'. BASE_URL . 'src/courses.php">Courses</a></li>';
+                    }
+                ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo BASE_URL; ?>src/about.php">About Us</a>
                 </li>
