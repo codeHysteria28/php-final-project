@@ -63,15 +63,15 @@ if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
                             echo "<td>{$course['description']}</td>";
                             echo "<td>{$course['price']}</td>";
                             echo "<td>{$course['videoUrl']}</td>";
-                            echo '<td><a class="text-warning" href="updateCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-pencil"></i></a></td>';
-                            echo '<td><a class="text-danger" href="deleteCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-trash"></i></a></td>';
+                            echo '<td><a class="text-warning" href="updateCourse.php/?id='. $course['ID'] .'"><i class="fa-solid fa-pencil"></i></a></td>';
+                            echo '<td><a class="text-danger" href="deleteCourse.php/?id='. $course['ID'] .'"><i class="fa-solid fa-trash"></i></a></td>';
                             echo '</tr>';
                         }
                     }else {
                         echo '<tr><td colspan="5">No courses found.</td></tr>';
                     }
                 }catch (Exception $ex){
-                    echo "Error fetching courses: " . $ex->getMessage();
+                    displayMessage("error", "Error fetching courses: " . $ex->getMessage());
                 }
             ?>
         </tbody>

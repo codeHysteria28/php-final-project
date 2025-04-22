@@ -2,7 +2,7 @@
 require_once 'HelperFunctions/displayAlert.php';
 class User {
 
-    // declare user variables
+    // declare user instance variables
     private $name;
     private $password;
     private $email;

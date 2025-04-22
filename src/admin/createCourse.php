@@ -1,5 +1,6 @@
 <?php
-session_start();
+include '../templates/adminHeader.php';
+require_once '../HelperFunctions/displayAlert.php';
 require '../HelperFunctions/sanitizeUserInput.php';
 require_once 'Course.php';
 
@@ -14,3 +15,5 @@ if(isset($_POST['createCourse']) && $_SESSION['AdminActive']) {
     $course = new Course($title, $description, $price, $videoUrl);
     $course->createCourse();
 }
+
+include "../templates/adminFooter.php";
