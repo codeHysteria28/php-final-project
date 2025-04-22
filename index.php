@@ -18,8 +18,8 @@ include "src/templates/header.php";
         </div>
         <div class="col-md-6 text-center">
             <div class="image-container">
-                <img src="assets/1.jpeg" alt="a man learning to code" class="img-thumbnail img-fluid learningToCodeCopy"/>
-                <img src="assets/1.jpeg" alt="a man learning to code" class="img-thumbnail img-fluid learningToCode"/>
+                <img src="assets/1.jpg" alt="a man learning to code" class="img-thumbnail img-fluid learningToCodeCopy"/>
+                <img src="assets/1.jpg" alt="a man learning to code" class="img-thumbnail img-fluid learningToCode"/>
             </div>
         </div>
     </div>
