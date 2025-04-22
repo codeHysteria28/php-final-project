@@ -1,6 +1,7 @@
 <?php
 include '../templates/adminHeader.php';
 require_once '../HelperFunctions/displayAlert.php';
+require_once '../Database.php';
 
 if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
     // admin content below
@@ -9,7 +10,7 @@ if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
 
 <div class="col-md-6 mt-5" id="create-course">
     <h2 class="text-primary">Create course</h2>
-    <form method="post">
+    <form method="post" action="createCourse.php">
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" id="title" name="title" aria-describedby="title" required>
@@ -26,7 +27,7 @@ if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
             <label for="videoUrl" class="form-label">Video URL</label>
             <input type="text" class="form-control" name="videoUrl" id="videoUrl" aria-describedby="videoUrl" required>
         </div>
-        <button type="submit" class="btn btn-success">Create course</button>
+        <button type="submit" name="createCourse" class="btn btn-success">Create course</button>
     </form>
 </div>
 
@@ -47,6 +48,33 @@ if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
         <tbody>
             <?php
                 // dynamically output courses from database into the table
+                try {
+                    $query = "SELECT * FROM courses";
+                    $database = new Database();
+                    $dbConn = $database->getConnection();
+                    $stmt = $dbConn->prepare($query); // Prepare the query
+                    $stmt->execute();
+                    $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    if(!empty($courses)){
+                        foreach ($courses as $course){
+                            echo '<tr><th scope="row">';
+                            echo $course['ID'];
+                            echo '</th>';
+                            echo "<td>{$course['title']}</td>";
+                            echo "<td>{$course['description']}</td>";
+                            echo "<td>{$course['price']}</td>";
+                            echo "<td>{$course['videoUrl']}</td>";
+                            echo '<td><a href="updateCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-pencil"></i></a></td>';
+                            echo '<td><a href="deleteCourse.php/id='. $course['ID'] .'"><i class="fa-solid fa-trash"></i></a></td>';
+                            echo '</tr>';
+                        }
+                    }else {
+                        echo '<tr><td colspan="5">No courses found.</td></tr>';
+                    }
+                }catch (Exception $ex){
+                    echo "Error fetching courses: " . $ex->getMessage();
+                }
             ?>
         </tbody>
     </table>

@@ -2,8 +2,8 @@
 <footer class="mt-auto bg-light w-100">
     <div class="text-center py-3">
         <p class="text-primary">&copy; <?php echo date("Y"); ?> Learn2Code.io / All rights reserved.</p>
-        <p class="text-danger">
-            <small>! Unauthorized access prohibited !</small>
+        <p class="text-danger fw-bold">
+            <small>! Unauthorized access is prohibited !</small>
         </p>
     </div>
 </footer>
