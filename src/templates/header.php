@@ -14,12 +14,6 @@ switch ($page){
     case "courses.php":
         $title = "Our Courses";
         break;
-    case "about.php":
-        $title = "About Us";
-        break;
-    case "contact.php":
-        $title = "Contact Us";
-        break;
     case "signUp.php":
         $title = "Sign Up";
         break;
@@ -62,12 +56,6 @@ switch ($page){
                         echo '<a class="nav-link" href="'. BASE_URL . 'src/courses.php">Courses</a></li>';
                     }
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>src/about.php">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo BASE_URL; ?>src/contact.php">Contact</a>
-                </li>
                 <?php
                 if(isset($_SESSION['Active']) && $_SESSION['Active']){
                     echo '<li class="nav-item mt-2"><small class="text-success">User: ';

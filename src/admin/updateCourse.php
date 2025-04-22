@@ -36,7 +36,7 @@ if(isset($_POST['updateCourse']) && $_SESSION['AdminActive']) {
     $price = sanitizeInput($_POST['price']);
     $videoUrl = sanitizeInput($_POST['videoUrl']);
 
-    // create a new course object and call a method to create a new course
+    // create a new course object and call a method to update a new course
     $course = new Course($title, $description, $price, $videoUrl);
     $course->updateCourse($id);
 }

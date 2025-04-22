@@ -81,7 +81,7 @@ if(isset($_SESSION['AdminActive']) && $_SESSION['AdminActive']){
 <?php
 }else {
     displayMessage("error", "Admin is not logged in, and admin session is not active! Redirecting to admin login ...");
-    header('refresh: 1;url=adminLogin.php');
+    header('refresh: 2;url=adminLogin.php');
     exit();
 }
 ?>

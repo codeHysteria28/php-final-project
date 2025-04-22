@@ -1,6 +1,6 @@
 <?php
-require_once '../Database.php';
-require_once '../HelperFunctions/displayAlert.php';
+require_once __DIR__ . '/../Database.php';
+require_once __DIR__ . '/../HelperFunctions/displayAlert.php';
 
 // get all courses
 function getAllCourses(){
