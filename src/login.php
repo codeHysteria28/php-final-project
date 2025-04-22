@@ -38,7 +38,7 @@ if(isset($_POST['submit'])) {
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" required>
+                <input type="password" name="password" class="form-control" id="password" required/>
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
             <p class="mt-3">

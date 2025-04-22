@@ -15,7 +15,7 @@ class Course {
         $this->isFree = $isFree;
     }
 
-    public function createCourse(): void {
+    public function createCourse():void {
 
     }
 
